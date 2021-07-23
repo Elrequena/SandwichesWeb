@@ -52,11 +52,13 @@ def order(request):
     return render(request, 'polls/order.html', context)
 
 def receipt(request, costumer_id):
+    total_ingredient = 0
     size_id = request.POST['size']
     size = get_object_or_404(Sandwich_Size, pk=size_id)
-    ingredient_id = request.POST['ingredient']
-    ingredient = get_object_or_404(Ingredient, pk=ingredient_id)
-    order_total = size.size_price + ingredient.ingredient_price
+    for ingredient_id in request.POST.getlist('ingredient'):
+        ingredient = get_object_or_404(Ingredient, pk=ingredient_id)
+        total_ingredient += ingredient.ingredient_price
+    order_total = size.size_price + total_ingredient  
     order = Order(
         customer_id=costumer_id,
         order_total=order_total,

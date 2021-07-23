@@ -14,7 +14,7 @@
         <p> Eliga que tamaño de sandwich desea </p>
         {% for size in sandwich_size %}
             <input 
-                type="radio" 
+                type="checkbox" 
                 name="size" 
                 id="size{{ forloop.counter }}" 
                 value="{{ size.id }}"
@@ -27,7 +27,7 @@
         <p> Eliga el ingrediente extra de sandwich que desee </p>
         {% for ingredient in sandwich_ingredient %}
             <input 
-                type="radio" 
+                type="checkbox" 
                 name="ingredient" 
                 id="ingredient{{ forloop.counter }}" 
                 value="{{ ingredient.id }}"
