@@ -16,7 +16,7 @@ class Customer(models.Model):
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     order_total = models.FloatField()
-    order_date = models.DateField('fecha de orden', auto_now_add=False)
+    order_date = models.DateField('fecha de orden', auto_now=True)
 
 class Sandwich(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
