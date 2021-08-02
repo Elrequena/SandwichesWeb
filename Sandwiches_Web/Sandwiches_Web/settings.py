@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # custom apps
-    'polls.apps.PollsConfig',
-
+    'salesite.apps.SalesiteConfig',
+    
     # system's apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'salesite',
+    
 ]
 
 MIDDLEWARE = [
