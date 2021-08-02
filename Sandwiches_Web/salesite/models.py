@@ -22,6 +22,7 @@ class Sandwich(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     size = models.ForeignKey(Sandwich_Size, on_delete=models.CASCADE)
     sandwich_price = models.FloatField()
+    ingredient = models.ManyToManyField(Ingredient,blank=True)
 
 class Ingredient_Sandwich(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
