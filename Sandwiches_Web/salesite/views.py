@@ -7,15 +7,19 @@ import re
 
 # La funcion lleva a la ventana principal de la tienda
 def index(request):
-    return render(request, 'polls/index.html')
+    return render(request,'main_menu.html')
+
+def sale_index(request):
+    return render(request,'index.html')
+
 # La funcion lleva a la vista de inscripcion de cliente de la tienda
 # con un formulario de C.I, nombre y apellido del cliente.
 def customer(request):
-    return render(request, 'polls/customer.html')
+    return render(request, 'customer.html')
 # En caso de que pase un dia un cliente ya inscripto en el sistema puede
 # pedir otra orden de sandwiches; escribe su C.I
 def customer_old(request):
-    return render(request, 'polls/customer_old.html')
+    return render(request, 'customer_old.html')
 # el cliente pide una orden de uno o varios sandwiches, con o sin ingredientes
 # extras y diferentes tamaño de sandwich.
 def order(request):
@@ -54,7 +58,7 @@ def order(request):
         'sandwich_ingredient': sandwich_ingredient,
         'customer_order': customer_order,
     }
-    return render(request, 'polls/order.html', context)
+    return render(request, 'order.html', context)
 
 def receipt(request, customer_id):
     total_ingredient = 0
@@ -146,4 +150,5 @@ def receipt(request, customer_id):
         'customer': customer,
         'quantity_sandwiches': quantity_sandwiches,
     }
-    return render(request, 'polls/receipt.html', context)
+    return render(request, 'receipt.html', context)
+
