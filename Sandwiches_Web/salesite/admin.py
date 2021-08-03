@@ -20,4 +20,7 @@ class SandwichAdmin(admin.ModelAdmin):
         return obj.ingredient
 
 admin.site.register(Sandwich,SandwichAdmin)
+admin.site.register(Ingredient)
+admin.site.register(Customer)
+admin.site.register(Order)
 
