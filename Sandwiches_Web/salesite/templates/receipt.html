@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Factura de orden del cliente {{ customer.name }} {{ customer.last_name }}</h1>
+    <p>Fecha de orden: {{ order.order_date }}</p>
+    {% for sandwich in sandwiches_order %}
+        <p>Sandwich número {{ forloop.counter }} </p>
+        <p>Tamaño del Sandwich: {{ sandwich.size.size_descripcion }}</p>
+        <p>Ingredientes del Sandwich: </p>
+        <ul>
+            {% for ingredient in sandwich.ingredient.all %}
+                <li>{{ ingredient.ingredient_descripcion }}</li>
+            {% endfor %}
+        </ul>
+        <p>El precio del sandwich es: {{ sandwich.sandwich_price }} </p>
+    {% endfor %}
+    <p>Total de sandwiches pedidos: {{ quantity_sandwiches }}</p>
+    <p>Total de orden: {{ order.order_total }}</p>
+    <p><a href="{% url 'salesite:order' %}">Desea pedir otro sandwich?</a></p>
+    <p><a href="{% url 'salesite:index' %}">Finalizar Orden</a></p>
+</body>
+</html>
